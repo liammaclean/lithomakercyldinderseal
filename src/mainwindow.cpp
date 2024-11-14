@@ -196,7 +196,7 @@ void MainWindow::createMesh()
   }
   image.invertPixels();
   border = settings->value("render/frameBorder").toFloat();
-  depthFactor = (settings->value("render/totalThickness").toFloat() - settings->value("render/minThickness").toFloat()) / 255.0;
+  depthFactor = (settings->(value("render/totalThickness").toFloat() - settings->value("render/minThickness").toFloat())*-1) / 255.0;
   widthFactor = (settings->value("render/width").toFloat() - (border * 2)) / image.width();
   float minThickness = settings->value("render/minThickness").toFloat() * -1;
   renderProgress->setMaximum(image.height() - 1);
